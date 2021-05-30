@@ -35,7 +35,7 @@ public class CustomCellEditor extends DefaultCellEditor implements
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0) {
+				if ((e.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0) {
 					if (e.getKeyCode() == ';') {
 						SimpleDateFormat format = new SimpleDateFormat(
 								"yyyy-MM-dd HH:mm:ss.SSS");

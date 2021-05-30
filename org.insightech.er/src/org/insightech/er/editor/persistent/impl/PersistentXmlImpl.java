@@ -103,12 +103,11 @@ public class PersistentXmlImpl extends Persistent {
 		int columnGroupCount = 0;
 		int columnCount = 0;
 		for (ColumnGroup columnGroup : diagramContents.getGroups()) {
-			context.columnGroupMap.put(columnGroup, new Integer(
-					columnGroupCount));
+			context.columnGroupMap.put(columnGroup, Integer.valueOf(columnGroupCount));
 			columnGroupCount++;
 
 			for (NormalColumn normalColumn : columnGroup.getColumns()) {
-				context.columnMap.put(normalColumn, new Integer(columnCount));
+				context.columnMap.put(normalColumn, Integer.valueOf(columnCount));
 				columnCount++;
 			}
 		}
@@ -118,14 +117,13 @@ public class PersistentXmlImpl extends Persistent {
 		int complexUniqueKeyCount = 0;
 
 		for (NodeElement content : diagramContents.getContents()) {
-			context.nodeElementMap.put(content, new Integer(nodeElementCount));
+			context.nodeElementMap.put(content, Integer.valueOf(nodeElementCount));
 			nodeElementCount++;
 
 			List<ConnectionElement> connections = content.getIncomings();
 
 			for (ConnectionElement connection : connections) {
-				context.connectionMap.put(connection, new Integer(
-						connectionCount));
+				context.connectionMap.put(connection, Integer.valueOf(connectionCount));
 				connectionCount++;
 			}
 
@@ -137,7 +135,7 @@ public class PersistentXmlImpl extends Persistent {
 
 				for (Column column : columns) {
 					if (column instanceof NormalColumn) {
-						context.columnMap.put(column, new Integer(columnCount));
+						context.columnMap.put(column, Integer.valueOf(columnCount));
 
 						columnCount++;
 					}
@@ -145,8 +143,7 @@ public class PersistentXmlImpl extends Persistent {
 
 				for (ComplexUniqueKey complexUniqueKey : table
 						.getComplexUniqueKeyList()) {
-					context.complexUniqueKeyMap.put(complexUniqueKey,
-							new Integer(complexUniqueKeyCount));
+					context.complexUniqueKeyMap.put(complexUniqueKey, Integer.valueOf(complexUniqueKeyCount));
 
 					complexUniqueKeyCount++;
 				}
@@ -156,27 +153,26 @@ public class PersistentXmlImpl extends Persistent {
 
 		for (Category category : diagramContents.getSettings()
 				.getCategorySetting().getAllCategories()) {
-			context.nodeElementMap.put(category, new Integer(nodeElementCount));
+			context.nodeElementMap.put(category, Integer.valueOf(nodeElementCount));
 			nodeElementCount++;
 		}
 
 		int wordCount = 0;
 		for (Word word : diagramContents.getDictionary().getWordList()) {
-			context.wordMap.put(word, new Integer(wordCount));
+			context.wordMap.put(word, Integer.valueOf(wordCount));
 			wordCount++;
 		}
 
 		int tablespaceCount = 0;
 		for (Tablespace tablespace : diagramContents.getTablespaceSet()) {
-			context.tablespaceMap.put(tablespace, new Integer(tablespaceCount));
+			context.tablespaceMap.put(tablespace, Integer.valueOf(tablespaceCount));
 			tablespaceCount++;
 		}
 
 		int environmentCount = 0;
 		for (Environment environment : diagramContents.getSettings()
 				.getEnvironmentSetting().getEnvironments()) {
-			context.environmentMap.put(environment, new Integer(
-					environmentCount));
+			context.environmentMap.put(environment, Integer.valueOf(environmentCount));
 			environmentCount++;
 		}
 

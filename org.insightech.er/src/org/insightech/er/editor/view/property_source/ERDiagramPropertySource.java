@@ -43,11 +43,11 @@ public class ERDiagramPropertySource extends AbstractPropertySource {
 
 			for (int i = 0; i < dbList.size(); i++) {
 				if (dbList.get(i).equals(this.diagram.getDatabase())) {
-					return new Integer(i);
+					return Integer.valueOf(i);
 				}
 			}
 
-			return new Integer(0);
+			return Integer.valueOf(0);
 		}
 
 		return null;

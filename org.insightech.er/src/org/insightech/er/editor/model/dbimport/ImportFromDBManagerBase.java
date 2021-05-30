@@ -845,8 +845,8 @@ public abstract class ImportFromDBManagerBase implements ImportFromDBManager {
 				decimalDegits = columnData.decimalDegits;
 			}
 
-			Integer length = new Integer(size);
-			Integer decimal = new Integer(decimalDegits);
+			Integer length = Integer.valueOf(size);
+			Integer decimal = Integer.valueOf(decimalDegits);
 
 			SqlType sqlType = SqlType.valueOf(this.dbSetting.getDbsystem(),
 					type, size, decimal);

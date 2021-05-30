@@ -1625,8 +1625,7 @@ public class XMLLoader {
 			String id = this.getStringValue(columnElement, "id");
 			NormalColumn column = context.columnMap.get(id);
 
-			Boolean desc = new Boolean(this.getBooleanValue(columnElement,
-					"desc", true));
+			Boolean desc = Boolean.valueOf(this.getBooleanValue(columnElement, "desc", true));
 
 			index.addColumn(column);
 			descs.add(desc);
